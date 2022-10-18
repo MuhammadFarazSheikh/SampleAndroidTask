@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">SampleAndroidTask</string>
+    <string name="text_allow_permissions">Allow required permissions</string>
+    <string name="text_description">Go to settings and allow location and storage permissions.</string>
+    <string name="text_label">Weather Forecast</string>
+    <string name="text_ok">OK</string>
+    <string name="text_cancel">Cancel</string>
+    <string name="text_loading_label">Loading Weather Content</string>
+    <string name="text_rate">Open Settings</string>
+    <string name="base_url_image">http://openweathermap.org/img/w/</string>
+    <string name="image_extension">.png</string>
+    <string name="text_sunset">Sunset:</string>
+    <string name="text_sunrise">Sunrise:</string>
+    <string name="text_pressure">Pressure:</string>
+    <string name="text_hpa">Hpa</string>
+    <string name="text_humidity">Humidity</string>
+    <string name="text_wind">Wind:</string>
+    <string name="text_km_h">Km/H</string>
+    <string name="text_show_five_days_data">Show Next Five Days Weather\nFor every three houres</string>
+    <string name="text_search_hint">Search...</string>
+    <string name="search">Search</string>
+    <string name="text_date">Date:</string>
+    <string name="text_time">Time:</string>
+    <string name="text_temp_type">Select Celsius / Fahrenheit</string>
+    <string name="text_celcius">Celsius</string>
+    <string name="text_fahrenheit">Fahrenheit</string>
+    <string name="text_add_to_favourite">Add To Favourite</string>
+    <string name="enter_valid_name">Enter valid name in search</string>
+    <string name="text_wriiten">Name successfully entered in CSV file.</string>
+</resources>
