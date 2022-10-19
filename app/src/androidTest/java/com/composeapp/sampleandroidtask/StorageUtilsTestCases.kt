@@ -9,12 +9,14 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class StorageUtilsTestCases
 {
+    /*TEST CASE TO CHECK FILE INSTANCE NOT NULL*/
     @Test
     fun checkCorrectFileInstance()
     {
         assertThat(getFile()).isNotNull()
     }
 
+    /*TEST CASE TO CHECK FILE PATH NOT NULL*/
     @Test
     fun checkCorrectFilePath()
     {

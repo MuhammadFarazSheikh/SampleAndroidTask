@@ -1,11 +1,9 @@
 package com.composeapp.sampleandroidtask.utils
 
-import android.app.Activity
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Environment
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
 /*CHECK IF LOCATION PERMISSIONS GRANTED*/

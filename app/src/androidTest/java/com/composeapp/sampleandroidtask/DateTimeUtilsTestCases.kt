@@ -13,30 +13,35 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class DateTimeUtilsTestCases
 {
+    /*TEST CHECK TO VERIFY CURRENT DATA WITH CORRECT FORMAT*/
     @Test
     fun getCurrentDateWithCorrectFormat()
     {
         assertThat(getCurrentDateTimeByFormat(TIME_FORMAT_NEW)).isNotEmpty()
     }
 
+    /*TEST CASE TO VERIFY CURRENT DATE WITH INCORRECT FORMAT*/
     @Test
     fun getCurrentDateWithInCorrectFormat()
     {
         assertThat(getCurrentDateTimeByFormat("")).isEmpty()
     }
 
+    /*TEST CASE TO VERIFY DATA CONVERSION WITH CORRECT VALUE*/
     @Test
     fun convertDateByCorrectFormat()
     {
         assertThat(convertDateByFormat(TIME_FORMAT_OLD, TIME_FORMAT_NEW,"00:00:00")).isNotEmpty()
     }
 
+    /*CONVERT DATE WITH NULL VALUE TEST CASE*/
     @Test
     fun convertDateByIncorrectFormat()
     {
         assertThat(convertDateByFormat(TIME_FORMAT_OLD, TIME_FORMAT_NEW,null)).isEmpty()
     }
 
+    /*TEST CASE TO CONVERT UNIX VALUE*/
     @Test
     fun convertUnixTimeToFormat()
     {

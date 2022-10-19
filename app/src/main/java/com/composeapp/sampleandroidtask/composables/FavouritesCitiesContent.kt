@@ -1,15 +1,11 @@
 package com.composeapp.sampleandroidtask.composables
 
 import android.content.Intent
-import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.Divider
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
@@ -20,13 +16,10 @@ import androidx.compose.ui.unit.sp
 import com.composeapp.sampleandroidtask.AppClass
 import com.composeapp.sampleandroidtask.Constants.Companion.FAVOURITE_CITY_NAME
 import com.composeapp.sampleandroidtask.Constants.Companion.favouriteCitiesList
-import com.composeapp.sampleandroidtask.Constants.Companion.favouriteCitiesListLiveData
 import com.composeapp.sampleandroidtask.activities.ActivityFavouriteCityWeather
-import com.composeapp.sampleandroidtask.activities.ActivityFiveDaysWeatherData
 import com.composeapp.sampleandroidtask.utils.KeyUtils
-import com.composeapp.sampleandroidtask.utils.getFile
-import com.composeapp.sampleandroidtask.utils.readCSVFile
 
+/*SHOW FAVOURITES CITIES LIST*/
 @Composable
 fun showFavouriteCities() {
     LazyColumn(

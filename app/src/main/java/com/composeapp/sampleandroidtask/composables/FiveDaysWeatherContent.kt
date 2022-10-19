@@ -11,6 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.composeapp.sampleandroidtask.models.Base
 
+/*SHOW WEATHER DATA FOR NEXT FIVE DAYS WITH THREE HOURS WEATHER DATA FOR EACH DAY*/
 @Composable
 fun showNextFiveDaysWeather(list: ArrayList<Base>)
 {

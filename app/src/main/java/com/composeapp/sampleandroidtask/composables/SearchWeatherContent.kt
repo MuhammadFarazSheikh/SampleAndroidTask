@@ -34,6 +34,8 @@ import com.composeapp.sampleandroidtask.utils.openLoaderDialogue
 import com.composeapp.sampleandroidtask.utils.writeToCSV
 import kotlinx.coroutines.launch
 
+/*SEARCH WEATHER CONTENT FOR USER SEARCH*/
+/*SHOW WEATHER CONTENT WITH OPTION TO SAVE LOCATION TO FAVOURITES*/
 @Composable
 fun searchWeatherContent()
 {

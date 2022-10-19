@@ -15,7 +15,6 @@ class Constants
         val apiCallSearchWeatherLiveData = MutableLiveData<String>()
         val favouriteCitiesListLiveData = MutableLiveData<Any>(Any())
         val favouriteCitiesList = ArrayList<String>()
-        const val DATE_FORMAT_NEW = "dd-MM-yyyy"
         const val CSV_FILE_NAME = "/FavouriteCitiesList.csv"
         const val TIME_FORMAT_NEW = "hh:mm a"
         const val TIME_FORMAT_OLD = "hh:mm:ss"

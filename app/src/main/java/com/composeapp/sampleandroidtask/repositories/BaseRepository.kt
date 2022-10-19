@@ -13,9 +13,6 @@ abstract class BaseRepository {
     suspend fun <T> safeApiCall(apiCall: suspend () -> T): Resource<T> {
         return withContext(Dispatchers.IO) {
             try {
-                /*if (::coroutineScope.isInitialized) {
-                    coroutineScope.cancel()
-                }*/
                 coroutineScope = this
                 Resource.Success(apiCall.invoke())
             } catch (throwable: Throwable) {

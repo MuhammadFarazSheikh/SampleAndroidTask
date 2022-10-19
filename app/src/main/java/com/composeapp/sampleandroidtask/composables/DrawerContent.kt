@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.composeapp.sampleandroidtask.R
 
+/*SHOW DRAWER CONTENT FOR SIDE MENU*/
 @Composable
 fun drawerContent(buttonOpenSettings:()->Unit)
 {

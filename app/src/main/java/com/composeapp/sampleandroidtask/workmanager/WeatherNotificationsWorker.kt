@@ -21,6 +21,7 @@ import kotlinx.coroutines.flow.collectLatest
 
 class WeatherNotificationsWorker(var context: Context,var workerParameters: WorkerParameters): CoroutineWorker(context,workerParameters)
 {
+    /*CHECK TIME IF 6 AM THEN CALL WEATHER API WITH USER LOCATION NAME FROM PREFERENCES AND SHOW NOTIFICATION WITH TEMPERATURE*/
     override suspend fun doWork(): Result {
         if(getCurrentDateTimeByFormat(TIME_FORMAT_NEW).uppercase().equals("06:00 AM")) {
             PreferenceDataStoreUtils.getLocationName(context).collectLatest {

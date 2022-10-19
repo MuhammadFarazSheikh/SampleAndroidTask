@@ -11,7 +11,6 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.mockito.Mock
-import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
 
 class CommonViewModelTestCases
@@ -23,6 +22,7 @@ class CommonViewModelTestCases
     @Mock
     lateinit var commonRepositry: CommonRepositry
 
+    /*INIT MOCK OBJECTS BEFORE TEST CASES EXECUTE*/
     @Before
     fun init()
     {
@@ -31,6 +31,7 @@ class CommonViewModelTestCases
         commonViewModel = CommonViewModel(commonRepositry)
     }
 
+    /*CALL API WITH CORRECT DATA TO TEST*/
     @Test
     fun testApICallsForResponse()
     {
@@ -49,6 +50,7 @@ class CommonViewModelTestCases
         }
     }
 
+    /*CALL API WITH IN CORRECT DATA TO TEST*/
     @Test
     fun testApICallsForError()
     {
@@ -67,6 +69,7 @@ class CommonViewModelTestCases
         }
     }
 
+    /*CALL FIVE DAYS WEATHER API TO TEST FOR RESULTS*/
     @Test
     fun testApICallsForResponseForFiveDays()
     {
@@ -85,6 +88,7 @@ class CommonViewModelTestCases
         }
     }
 
+    /*CALL FIVE DAYS WEATHER API WITH INCORRECT DATA TO TEST RESULTS*/
     @Test
     fun testApICallsForErrorForFiveDays()
     {

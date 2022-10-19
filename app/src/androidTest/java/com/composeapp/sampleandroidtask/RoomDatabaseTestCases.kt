@@ -21,6 +21,7 @@ class RoomDatabaseTestCases
     @Mock
     lateinit var roomDBRepository: RoomDBRepository
 
+    /*INIT MOCK OBJECTS WITH DATA IN ROOM DB*/
     @Before
     fun init()
     {
@@ -31,7 +32,7 @@ class RoomDatabaseTestCases
         roomDBViewModel.updateWeatherData(WeatherInformation(0,"faraz"))
     }
 
-
+    /*TEST CASE TO CHECK DATA STORED IN DB*/
     @Test
     fun checkIfWeatherInfoAdded()= runBlocking{
         assertThat(roomDBViewModel.getWeatherData()).isNotNull()

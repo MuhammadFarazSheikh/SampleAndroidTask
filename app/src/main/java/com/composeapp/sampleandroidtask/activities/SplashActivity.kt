@@ -1,6 +1,10 @@
 package com.composeapp.sampleandroidtask.activities
 
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
+import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +12,7 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.os.Environment
 import android.provider.Settings
+import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
@@ -31,11 +36,13 @@ import androidx.compose.ui.unit.sp
 import com.composeapp.sampleandroidtask.BuildConfig
 import com.composeapp.sampleandroidtask.utils.checkIfLocationPermissionGranted
 import com.composeapp.sampleandroidtask.utils.checkIfStoragePermissionsGranted
+import com.composeapp.sampleandroidtask.utils.isNetworkAvailable
 import com.composeapp.sampleandroidtask.utils.openAlertForMessage
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class SplashActivity : AppCompatActivity() {
+    private lateinit var receiver: BroadcastReceiver
     lateinit var mutableState: MutableState<Boolean>
     private lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,6 +70,31 @@ class SplashActivity : AppCompatActivity() {
                     mutableState.value = true
                 }
             }
+        if(!isNetworkAvailable(this)) {
+            setupInternetConnectionReceiver()
+        }
+    }
+
+    /*SHOW UI IF INTERNET CONNECTS*/
+    private fun setupInternetConnectionReceiver()
+    {
+        receiver = object: BroadcastReceiver()
+        {
+            override fun onReceive(p0: Context?, p1: Intent?) {
+                if (checkIfLocationPermissionGranted(applicationContext) && checkIfStoragePermissionsGranted(applicationContext)) {
+                    openMainScreen()
+                }
+            }
+        }
+        registerReceiver(receiver, IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION))
+    }
+
+    override fun onDestroy() {
+        if(::receiver.isInitialized)
+        {
+            unregisterReceiver(receiver)
+        }
+        super.onDestroy()
     }
 
     /*START TIMER TO CHECK FOR LOCATION PERMISSION GRANTED OR NOT*/
@@ -85,7 +117,7 @@ class SplashActivity : AppCompatActivity() {
         }.start()
     }
 
-    /*CHECK AND GRANT LOCATION PERMISSION IF NOT GRANTED*/
+    /*SHOW PERMISSIONS DIALOGUE TO TAKE USER TO SETTINGS*/
     @Composable
     private fun checkAndGrantPermission() {
         if (mutableState.value) {
@@ -107,6 +139,7 @@ class SplashActivity : AppCompatActivity() {
         }
     }
 
+    /*OPEN APP SETTINGS TO ALLOW STORAGE PERMISSIONS BELOW ANDROID 11 AND LOCATION PERMISSIONS*/
     private fun openAppSettings() {
         mutableState.value = false
         activityResultLauncher.launch(
@@ -119,6 +152,7 @@ class SplashActivity : AppCompatActivity() {
         )
     }
 
+    /*OPEN SETTINGS TO ALLOW FILE ACCESS IN CASE OF ANDROID 11 OR HIGHER*/
     private fun openSettings() {
         mutableState.value = false
         var intent = Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION)
@@ -129,10 +163,17 @@ class SplashActivity : AppCompatActivity() {
         )
     }
 
+    /*OPEN MAIN SCREEN WHEN ALL PERMISSIONS ARE GRANTED*/
     private fun openMainScreen() {
-        startActivity(Intent(this, MainActivity::class.java).apply {
-            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-        })
+        if(isNetworkAvailable(this))
+        {
+            startActivity(Intent(this, MainActivity::class.java).apply {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            })
+        }
+        else{
+            Toast.makeText(this,getString(R.string.text_connect), Toast.LENGTH_SHORT).show()
+        }
     }
 
     @Composable

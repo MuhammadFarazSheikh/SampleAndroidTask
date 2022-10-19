@@ -1,7 +1,6 @@
 package com.composeapp.sampleandroidtask.utils
 
 import android.os.Environment
-import android.util.Log
 import android.widget.Toast
 import com.composeapp.sampleandroidtask.AppClass.Companion.instance
 import com.composeapp.sampleandroidtask.Constants.Companion.CSV_FILE_NAME
@@ -15,8 +14,10 @@ import java.io.FileReader
 import java.io.FileWriter
 import java.io.IOException
 
+/*LOCATION OF FILE IN DOWNLOADS PATH*/
 inline fun getFileLocation():String= Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath + CSV_FILE_NAME
 
+/*CREATE FILE FROM PATH IF DOESNOT EXIST*/
 fun getFile():File
 {
     var file = File(getFileLocation())
@@ -27,6 +28,7 @@ fun getFile():File
     return file
 }
 
+/*WRITE USER ADDED LOCATION NAME TO CSV FILE*/
 fun writeToCSV() {
 
 
@@ -46,6 +48,7 @@ fun writeToCSV() {
     }
 }
 
+/*READ USER ADDED LOCATION NAMES FROM CVS FILE*/
 fun readCSVFile(file: File)
 {
     favouriteCitiesList.clear()

@@ -10,14 +10,17 @@ import javax.inject.Inject
 @HiltViewModel
 open class RoomDBViewModel @Inject constructor(private val roomDBRepository: RoomDBRepository): ViewModel()
 {
+    /*INSERT WEATHER DATA IN LOCAL DB*/
     fun insertWeatherData(weatherInformation: WeatherInformation)= viewModelScope.launch {
         roomDBRepository.insertWeatherData(weatherInformation)
     }
 
+    /*UPDATE WEATHER DATA IN LOCAL DB*/
     fun updateWeatherData(weatherInformation: WeatherInformation)= viewModelScope.launch {
         roomDBRepository.updateWeatherData(weatherInformation)
     }
 
+    /*GET WEATHER DATA FROM LOCAL DB TO SYNC*/
     suspend fun getWeatherData():WeatherInformation
     {
         return roomDBRepository.getWeatherData()

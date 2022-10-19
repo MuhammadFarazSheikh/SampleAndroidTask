@@ -12,6 +12,7 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class PreferenceDataStoreTestCases
 {
+    /*INIT VALUES IN PREFERENCE STORAGE BEFORE TEST CASES EXECUTE*/
     @Before
     fun init()
     {
@@ -20,12 +21,15 @@ class PreferenceDataStoreTestCases
             PreferenceDataStoreUtils.storeLocationName("Islamabad",ApplicationProvider.getApplicationContext())
         }
     }
+
+    /*TEST CASE TO CHECK IF TEMPERATURE STORED*/
     @Test
     fun checkTemperatureValue()
     {
         assertThat(PreferenceDataStoreUtils.getTemperatureType(ApplicationProvider.getApplicationContext())).isNotNull()
     }
 
+    /*TEST CASE TO CHECK CORRECT LOCATION VALUE SAVED*/
     @Test
     fun checLocationValue()
     {

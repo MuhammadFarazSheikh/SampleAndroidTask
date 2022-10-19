@@ -25,6 +25,7 @@ import com.composeapp.sampleandroidtask.activities.ActivityFiveDaysWeatherData
 import com.composeapp.sampleandroidtask.models.Base
 import com.composeapp.sampleandroidtask.utils.KeyUtils
 
+/*SHOW WEATHER CONTENT WITH OPTION TO SHOW DATA FOR NEXT FIVE DAYS*/
 @Composable
 fun setupCurrentWeatherAndMoreOptions(base: Base) {
     Column(

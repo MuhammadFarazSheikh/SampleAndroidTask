@@ -35,20 +35,17 @@ import com.google.accompanist.pager.rememberPagerState
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import java.io.*
 import java.util.concurrent.TimeUnit
 
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-
     private val commonViewModel: CommonViewModel by viewModels()
     private val roomDBViewModel: RoomDBViewModel by viewModels()
     private lateinit var isShowSettings:MutableState<Boolean>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(
             ComposeView(this).apply {
                 setContent {
@@ -121,7 +118,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    /*OPEN SETTINGS TO SET TEMPERATURE TYPE*/
+    /*OPEN SETTINGS DIALOGUE TO SET TEMPERATURE TYPE*/
     @Composable
     private fun openSettings() {
         if(isShowSettings.value) {
@@ -145,6 +142,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     /*GET USER LOCATION AND GET LOCATION NAME FROM LATITUDE AND LONGITUDE*/
+    /*SAVE USER LOCATION BY NAME IN PREFERENCE STORAGE*/
+    /*START WORK MANAGER FOR PERIODIC TASK AND SHOW NOTIFICATION AT 6 AM*/
     private fun getUserLocation() {
         getUserLocation(this, { latLng ->
             CURRENT_CITY_NAME = getAddress(latLng.latitude, latLng.longitude, this)

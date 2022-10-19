@@ -40,6 +40,7 @@ class ActivityFiveDaysWeatherData : AppCompatActivity() {
     }
 
     /*CALL API FOR NEXT FIVE DAYS WEATHER DAYA FOR LOCATION*/
+    /*WEATHER DETAILS FOR FIVE DAYS CONTAIN FORECAST FOR EVERY THREE HOURS FOR EACH DAY*/
     private fun initInstances()
     {
         intent?.let { intentData ->

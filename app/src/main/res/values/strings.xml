@@ -27,4 +27,5 @@
     <string name="text_add_to_favourite">Add To Favourite</string>
     <string name="enter_valid_name">Enter valid name in search</string>
     <string name="text_wriiten">Name successfully entered in CSV file.</string>
+    <string name="text_connect">Check your internet connected.</string>
 </resources>

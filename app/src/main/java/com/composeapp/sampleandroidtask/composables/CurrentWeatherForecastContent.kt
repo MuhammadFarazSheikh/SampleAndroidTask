@@ -21,7 +21,7 @@ import com.composeapp.sampleandroidtask.utils.*
 import com.composeapp.sampleandroidtask.utils.KeyUtils.Companion.CELCIUS
 import com.composeapp.sampleandroidtask.utils.KeyUtils.Companion.FAHRENHEIT
 
-/*SHOW CURRENT LOCATION WEATHER CONTENT*/
+/*SHOW WEATHER CONTENT*/
 @Composable
 fun showWeatherForecast(base: Base) {
     if(!base.name.isNullOrBlank() || !base.name.isNullOrEmpty()) {
